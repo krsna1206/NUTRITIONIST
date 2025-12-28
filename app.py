@@ -1,52 +1,60 @@
 import streamlit as st
 from PIL import Image
-import google.generativeai as genai
-import os
-from dotenv import load_dotenv
-load_dotenv()
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+from gemini_util import gemini_response
+from pdf_utils import generate_nutrition_pdf
 
-def gemini_response(prompt,image):
-    model = genai.GenerativeModel('gemini-2.5-flash')
-    response = model.generate_content([prompt, image[0]])
-    return response.text
+# Page config
+st.set_page_config(
+    page_title="Nutritionist AI",
+    page_icon="🥗",
+    layout="wide"
+)
 
-def input_image_Setup(uploaded_file):
-    if uploaded_file is not None:
-        bytes_data = uploaded_file.getvalue()
-        image_parts = [
-            {
+st.title("🥗 Nutritionist AI")
+st.write("Upload a food image to analyze its nutritional value.")
+
+# File uploader
+uploaded_file = st.file_uploader(
+    "Upload a food image",
+    type=["jpg", "jpeg", "png"]
+)
+
+# Prompt for Gemini
+PROMPT = """
+You are a professional nutritionist.
+
+Analyze the uploaded food image and return ONLY in the following format:
+
+Dish Name: <dish name>
+
+Item | Calories | Protein | Carbohydrates | Fats | Fiber
+"""
+
+# When image is uploaded
+if uploaded_file:
+    image = Image.open(uploaded_file)
+    st.image(image, caption="Uploaded Meal", use_column_width=True)
+
+    if st.button("Analyze Meal"):
+        with st.spinner("Analyzing meal..."):
+            image_data = [{
                 "mime_type": uploaded_file.type,
-                "data": bytes_data
-            }
-        ]
-        return image_parts
-    else:
-        raise ValueError("No image uploaded")
-    
-st.title("Nutritionist AI")
-st.set_page_config(page_title="Nutritionist AI", page_icon=":apple:", layout="wide")
-uploaded_File = st.file_uploader("Upload an image of your meal", type=["jpg", "jpeg", "png"])
-image = ""
-if uploaded_File is not None:
-    image = Image.open(uploaded_File)
-    st.image(image, caption='Uploaded Image', use_column_width=True)
+                "data": uploaded_file.getvalue()
+            }]
 
-submit = st.button("TELL ME ABOUT MY MEAL")
+            response = gemini_response(PROMPT, image_data)
 
-input_prompt = """You are a expert nutritionist. Anlayze the iamge of the meal and provide a detailed" \
-"information about the meal. Mention the name of the dish, its nuttritional value, health benefits." \
-"" \
-"give the nutrional value in a table format. like:" \
-"ITEMS    |   AMOUNT_of_calories  |  amount_of_protien " \
-"item1_name        200g                    12g" \
-"item2_name         150g                    9g" \
-"also provide the whether the food is healthy and best alternative of that food" \
-"mention the percentage split of the ratio of carbihydrates,fats,fibers,sugar any additional diet information""" 
+        st.success("Analysis Complete!")
 
-if submit:
-    
-    image_data = input_image_Setup(uploaded_File)
-    response = gemini_response(input_prompt,image_data)
-    st.subheader("Response")
-    st.write(response)
+        st.subheader("📊 Nutrition Analysis")
+        st.text(response)
+
+        # Generate PDF
+        pdf = generate_nutrition_pdf(response)
+
+        st.download_button(
+            label="📄 Download Nutrition PDF",
+            data=pdf,
+            file_name="nutrition_report.pdf",
+            mime="application/pdf"
+        )
