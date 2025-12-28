@@ -48,5 +48,5 @@ if submit:
     
     image_data = input_image_Setup(uploaded_File)
     response = gemini_response(input_prompt,image_data)
-    st.subheader("AI Response")
+    st.subheader("Response")
     st.write(response)
