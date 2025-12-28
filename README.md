@@ -1,21 +1,20 @@
-##🥗 Nutritionist AI – Smart Meal Analysis App
+
+## 🥗 Nutritionist AI – Smart Meal Analysis App
 
 📌 Overview
 
-Nutritionist AI is an AI-powered web application that analyzes food images and provides detailed nutritional insights.
-By uploading a meal image, users receive:
+Nutritionist AI is an AI-powered web application that analyzes food images and provides detailed nutritional insights. By uploading a meal image, users receive:
 
- -> Meal identification
+▫️Meal identification
 
- -> Nutritional values in tabular format
+▫️Nutritional values in tabular format
 
- -> Health benefits
+▫️Health benefits
 
- -> Macronutrient breakdown (carbs, fats, protein, fiber, sugar)
+▫️Macronutrient breakdown (carbs, fats, protein, fiber, sugar)
 
- -> Healthy alternatives
-
-##🚀 Features
+▫️Healthy alternatives
+## 🚀 Features
 
 ✅ Upload food images (JPG / PNG)
 
@@ -30,19 +29,19 @@ By uploading a meal image, users receive:
 ✅ Secure API key handling using .env or Streamlit secrets
 ## 🧠 Tech Stack
 
-Component Technology
+➡️Component Technology
 
-Frontend Streamlit
+➡️Frontend Streamlit
 
-AI Model Google Gemini (gemini-2.5-flash)
+➡️AI Model Google Gemini (gemini-2.5-flash)
 
-Backend	Python
+➡️Backend	Python
 
-Image Processing Pillow (PIL)
+➡️Image Processing Pillow (PIL)
 
-Environment Management	python-dotenv
+➡️Environment Management python-dotenv
 
-Deployment	Streamlit Cloud
+➡️Deployment Streamlit Cloud
 ## 📂 Project Structure
 
 nutritionist/
@@ -57,41 +56,41 @@ nutritionist/
 
 ## ▶️ Run the App Locally
 
-streamlit run app.py
+    streamlit run app.py
 
 ## 🧪 How the App Works
 
-User uploads a meal image
+👉User uploads a meal image 
 
-Image is processed using Gemini Vision
+👉Image is processed using Gemini Vision
 
-AI analyzes:
+👉AI analyzes:
 
-    Food type
+▪️Food type
 
-    Nutritional values
+▪️Nutritional values
 
-    Health benefits
+▪️Health benefits
 
-    Results are displayed in a structured table format
+▪️Results are displayed in a structured table format
 
-    Suggestions for healthier alternatives are included
+▪️Suggestions for healthier alternatives are included
 
-📊 Sample Output
+👉 📊 Sample Output
 
-Item	Calories	Protein
-Rice	200 kcal	4g
-Chicken	250 kcal	25g
+    Item	Calories	Protein
+    Rice	200 kcal	4g
+    Chicken	250 kcal	25g
 
 Additional Info:
 
-    Carbohydrates: 55%
+▫️Carbohydrates: 55%
 
-    Protein: 30%
+▫️Protein: 30%
 
-    Fats: 10%
+▫️Fats: 10%
 
-    Fiber: 5%
+▫️Fiber: 5%
 
 ## 🔐 Security Notes
 
