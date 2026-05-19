@@ -14,88 +14,11 @@ Nutritionist AI is an AI-powered web application that analyzes food images and p
 ▫️Macronutrient breakdown (carbs, fats, protein, fiber, sugar)
 
 ▫️Healthy alternatives
-## 🚀 Features
 
-✅ Upload food images (JPG / PNG)
+<img width="930" height="262" alt="Screenshot 2026-05-19 223320" src="https://github.com/user-attachments/assets/465323af-506f-4a12-86f8-8c4533560a02" />
 
-✅ AI-based meal recognition
+<img width="916" height="849" alt="image" src="https://github.com/user-attachments/assets/6cbf52d8-d2fd-4a10-b9ce-4198911054ed" />
 
-✅ Nutritional value breakdown in table format
+<img width="890" height="392" alt="image" src="https://github.com/user-attachments/assets/f18a6551-fd21-4593-9f17-258eac722450" />
 
-✅ Health insights and dietary suggestions
-
-✅ Clean and simple Streamlit UI
-
-✅ Secure API key handling using .env or Streamlit secrets
-## 🧠 Tech Stack
-
-➡️Component Technology
-
-➡️Frontend Streamlit
-
-➡️AI Model Google Gemini (gemini-2.5-flash)
-
-➡️Backend	Python
-
-➡️Image Processing Pillow (PIL)
-
-➡️Environment Management python-dotenv
-
-➡️Deployment Streamlit Cloud
-## 📂 Project Structure
-
-nutritionist/
-
-├── app.py                   # Main Streamlit application
-
-├── requirements.txt         # Python dependencies
-
-├── .env                     # API key (local only, NOT pushed)
-
-└── README.md
-
-## ▶️ Run the App Locally
-
-    streamlit run app.py
-
-## 🧪 How the App Works
-
-👉User uploads a meal image 
-
-👉Image is processed using Gemini Vision
-
-👉AI analyzes:
-
-▪️Food type
-
-▪️Nutritional values
-
-▪️Health benefits
-
-▪️Results are displayed in a structured table format
-
-▪️Suggestions for healthier alternatives are included
-
-👉 📊 Sample Output
-
-    Item	Calories	Protein
-    Rice	200 kcal	4g
-    Chicken	250 kcal	25g
-
-Additional Info:
-
-▫️Carbohydrates: 55%
-
-▫️Protein: 30%
-
-▫️Fats: 10%
-
-▫️Fiber: 5%
-
-## 🔐 Security Notes
-
-API keys are never hardcoded
-
-.env and .streamlit/secrets.toml are excluded from GitHub
-
-Safe for public deployment
+<img width="744" height="312" alt="image" src="https://github.com/user-attachments/assets/2ce5b3eb-e178-4bd9-aabd-ceb97ab5e02c" />
